@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS practice</title>
+    <style>
+        .box-model {
+            content: 30px;
+            height: 80px;
+            border: 1px solid red;
+            width: 80px;
+        }
+
+
+        .text-center {
+            border: 1px solid green;
+            background-color: #EEEEEE;
+            width: 200px;
+            height: 200px;
+            font-size: 30px;
+            font-weight: 900px;
+            text-align: center;
+
+            box-shadow: #797979 5px 5px;
+
+        }
+
+        /* put in table */
+
+        .text-center2 {
+            border: 3px solid yellow;
+            width: 200px;
+            height: 200px;
+            font-size: 30px;
+            font-weight: 900px;
+
+            text-align: center;
+            vertical-align: center;
+
+        }
+
+        .text-center3 {
+
+            border: 3px solid blue;
+            width: 200px;
+            height: 200px;
+            font-size: 30px;
+
+        }
+
+        /* put span in div,then display block,margin 50px auto */
+        .text-center3-span {
+            display: block;
+            border: 3px solid rgb(187, 41, 102);
+            width: 100px;
+            height: 100px;
+            font-size: 30px;
+
+            margin: 25% auto;
+
+        }
+
+        .position-static {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            position: relative;
+        }
+
+        .p-static {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .position-fixed {
+            position: fixed;
+            border: solid 2px pink;
+            width: 100px;
+            height: 100px;
+            top: 2px;
+            right: 100px;
+
+        }
+
+        .position-sticky1 {
+            position: sticky;
+            top: 10px;
+            left: 600px;
+            border: solid 2px red;
+
+            width: 100px;
+            height: 30px;
+        }
+
+        .position-sticky2 {
+            position: sticky;
+            bottom: 10px;
+            left: 600px;
+            border: solid 2px lightgreen;
+
+            width: 100px;
+            height: 30px;
+        }
+
+        .position-relative {
+            width: 200px;
+            height: 200px;
+
+            position: relative;
+
+            bottom: 220px;
+            left: 240px;
+            background: lightslategray;
+            z-index: 101;
+        }
+
+        .position-absolute {
+            width: 200px;
+            height: 200px;
+
+            position: absolute;
+
+            bottom: -600px;
+            left: 100px;
+            background: rgb(175, 145, 175);
+            z-index: 99;
+        }
+
+        .position-absolute2 {
+            width: 200px;
+            height: 200px;
+
+            position: absolute;
+
+            bottom: -700px;
+            left: 150px;
+            background: greenyellow;
+            text-align: end;
+        }
+
+        .p-absolute2 {
+            display: block;
+            margin: 70% auto;
+        }
+
+        .float {
+            width: 100px;
+            height: 100px;
+            border: 3px solid green;
+            float: right;
+            float: bottom;
+            background: cyan;
+        }
+
+
+        .flex {
+            width: 600px;
+            height: 200px;
+            border: 8px solid blue;
+
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row-reverse;
+        }
+
+        .flex-sub {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+
+            border: 2px solid green;
+        }
+
+
+
+
+
+
+        .transition {
+
+            width: 100px;
+            height: 100px;
+            border: 1px solid green;
+            transition: width 3s;
+
+
+
+        }
+
+        .transition:hover {
+            background-color: yellow;
+            width: 900px;
+
+        }
+        .animation {
+            width: 100px;
+            height: 100px;
+            border: 1px solid green;
+        }
+        .animation:hover {
+            width: 100px;
+            height: 100px;
+            border: 1px solid green;
+            animation: animation 5s;
+        }
+
+        @keyframes animation {
+                    0% {
+                        width: 50px;
+                        height: 50px;
+                        background-color: red;
+                    }
+                    25% {
+                        width: 80px;
+                        height: 80px;
+                        background-color: yellow;
+                    }
+                    50% {
+                        width: 100px;
+                        height: 100px;
+                        background-color: blue;
+                    }
+                    100% {
+                        width: 150px;
+                        height: 150px;
+                        background-color: green;
+                    }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- &lt;  for <;   &gt; for >; -->
+    <div>
+        &lt;div &gt;&lt;div&gt;
+    </div>
+
+    <div class="box-model">
+        <p>This is a box</p>
+    </div><br>
+    <div class="position-sticky1">
+        sticky1
+    </div><br>
+
+    <div class="text-center">
+        center test1
+
+    </div><br>
+
+    <table class="text-center2">
+        <td>td center test2</td>
+    </table><br>
+
+    <div class="text-center3">
+        <span class="text-center3-span">
+            span center test3
+        </span>
+    </div><br>
+    <div class="position-sticky2">
+        sticky2
+    </div>
+
+    <div class="position-static">
+        <div class="p-static">static</div>
+    </div>
+
+    <div class="position-absolute">
+        absolute old
+    </div>
+    <div class="position-absolute2">
+        <span class="p-absolute2">
+            absolute new
+        </span>
+    </div>
+
+    <div class="position-relative">
+        relative
+    </div>
+    <div class="position-fixed">
+        fixed
+    </div>
+    <div class="float">
+        float
+    </div><br><br>
+
+    <div class="flex">
+        <span class="flex-sub">flex1</span>
+        <span class="flex-sub">flex2</span>
+        <span class="flex-sub">flex3</span>
+
+    </div><br><br>
+    <div class="animation">I am animation</div>
+<br>
+
+    <div class="transition">transition</div>
+<br>
+
+
+
+
+
+
+
+</body>
+
+</html>
