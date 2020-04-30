@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS-practice</title>
+    <style>
+        /* body :focus {
+            outline: none;
+        } */
+        
+        #main-session {
+            position: absolute;
+            width: 600px;
+            height: 400px;
+            background-color: pink;
+            border: 2px solid black;
+            top: 0;
+            z-index: -1;
+        }
+        
+        div,
+        button {
+            margin: 10px;
+        }
+        
+        #popup-container {
+            display: none;
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        .popup-box {
+            margin-left: 50%;
+            transform: translate(-50%);
+            height: 230px;
+            width: 400px;
+            border: 2px solid green;
+            background-color: white;
+        }
+        
+        .popup-box p {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 2em;
+        }
+        
+        .popup-box button {
+            margin-left: 100px;
+        }
+        
+        .dropdown-content {
+            border: 2px solid green;
+            display: block;
+        }
+        
+        .dropdown-content-element {
+            list-style-type: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main-session">
+        <button id="popup-btn">pop-up</button>
+        <div id="popup-container">
+            <div class="popup-box">
+                <p>How are you today?</p>
+                <button id="popup-close-btn">Close</button>
+                <button id="popup-save-btn">Save</button>
+            </div>
+        </div>
+
+        <div class="dropdown-session">
+            <input id="dropdown-input" type="text">
+            <ul class="dropdown-content">
+                <li class="dropdown-content-element">Yesterday</li>
+                <li class="dropdown-content-element">Today</li>
+                <li class="dropdown-content-element">Tomorrow</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    let popupBtn = document.getElementById('popup-btn');
+    let popupContainer = document.getElementById('popup-container');
+    let popupBox = document.getElementsByClassName('popup-box');
+    let popupCloseBtn = document.getElementById('popup-close-btn');
+
+    popupBtn.addEventListener('click', function(event) {
+        //    console.log("hi");
+        if (popupContainer.style.display === "none") {
+            popupContainer.style.display = "block";
+
+        } else {
+            popupContainer.style.display = "block";
+        }
+        event.stopPropagation();
+    })
+
+    popupCloseBtn.addEventListener('click', function(event) {
+        popupContainer.style.display = "none";
+    })
+
+    document.addEventListener('click', function(event) {
+            popupContainer.style.display = "none";
+        })
+        // popupBox.addEventListener('click', function(event) {
+        //     popupContainer.style.display = "none";
+
+    // })
+
+
+
+
+    let dropdownInput = document.getElementById('dropdown-input');
+    dropdownInput.addEventListener('click', function(event) {
+        console.log("hello");
+    })
+</script>
+
+</html>
