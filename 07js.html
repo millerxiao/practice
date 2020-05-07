@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS-practice</title>
+    <style>
+        /* body :focus {
+            outline: none;
+        } */
+        
+        #main-session {
+            margin-left: 25%;
+            margin-top: 6%;
+            width: 600px;
+            height: 400px;
+            background-color: pink;
+            border: 2px solid black;
+            top: 0;
+            z-index: -1;
+        }
+        
+        #popup-container {
+            visibility: hidden;
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        .popup-box {
+            margin-left: 50%;
+            margin-top: 10%;
+            transform: translate(-50%);
+            height: 230px;
+            width: 400px;
+            border: 2px solid green;
+            background-color: white;
+        }
+        
+        .popup-box p {
+            text-align: center;
+            margin-top: 70px;
+            font-size: 2em;
+        }
+        
+        #popup-btn {
+            margin: 10px 0px 10px 20px;
+        }
+        
+        .popup-box button {
+            margin-left: 100px;
+        }
+        
+        #dropdown-container {
+            margin-top: 0;
+            visibility: hidden;
+            padding: 0 0 0 0px;
+            width: 158px;
+            border: 2px solid green;
+        }
+        
+        #dropdown-input {
+            color: transparent;
+            text-shadow: 0 0 0 #000;
+            text-align: center;
+            background-color: lightskyblue;
+            border: none;
+        }
+        
+        #dropdown-input:hover {
+            cursor: context-menu;
+        }
+        
+        .dropdown-element {
+            list-style-type: none;
+        }
+        
+        li {
+            text-indent: 40px;
+            border: 1px solid blue;
+            margin-left: 0px;
+            background-color: rgb(190, 228, 168);
+        }
+        
+        li:hover {
+            background-color: lightskyblue;
+        }
+        
+        #popover-up {
+            visibility: hidden;
+            width: 120px;
+            height: 40px;
+            border-radius: 16px;
+            background-color: lightskyblue;
+            margin: 10px 0px 0px 20px;
+            padding: 6px;
+        }
+        
+        #popover-top-btn {
+            display: block;
+            margin: 0px 0px 0px 20px;
+        }
+        
+        #popover-left {
+            display: inline-block;
+            visibility: hidden;
+            width: 120px;
+            height: 40px;
+            background-color: lightskyblue;
+            margin: 10px 0px 0px 10px;
+            padding: 6px 0px 6px 6px;
+            border-radius: 16px;
+        }
+        
+        #popover-left-btn {
+            margin-left: -4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main-session">
+        <button id="popup-btn">pop-up</button>
+        <div id="popup-container">
+            <div id="test-id" class="popup-box">
+                <p>How are you today?</p>
+                <button id="popup-close-btn">Close</button>
+                <button id="popup-save-btn">Save</button>
+            </div>
+        </div>
+
+        <div class="dropdown-session">
+            <input id="dropdown-input" type="text" value="What's the Best day">
+            <ul id="dropdown-container">
+                <li class="dropdown-element">Yesterday</li>
+                <li class="dropdown-element">Today</li>
+                <li class="dropdown-element">Tomorrow</li>
+            </ul>
+        </div>
+
+        <div id="popover-up">This is a popover on the top!</div>
+        <button id="popover-top-btn">popover on the top</button>
+
+
+        <div id="popover-left">This is a popover on the left!</div>
+        <button id="popover-left-btn">popover on the left</button>
+
+
+
+
+    </div>
+</body>
+
+
+
+<script>
+    let popupBtn = document.getElementById('popup-btn');
+    let popupContainer = document.getElementById('popup-container');
+    let popupCloseBtn = document.getElementById('popup-close-btn');
+
+    let popupTestId = document.getElementById('test-id');
+    popupTestId.addEventListener('click', function(event) {
+        event.stopPropagation();
+    })
+
+
+    popupBtn.addEventListener('click', function(event) {
+
+        if (popupContainer.style.visibility === "hidden") {
+            popupContainer.style.visibility = "visible";
+
+        } else {
+            popupContainer.style.visibility = "hidden";
+        }
+        event.stopPropagation();
+    })
+
+    popupCloseBtn.addEventListener('click', function(event) {
+        popupContainer.style.visibility = "hidden";
+    })
+
+    document.addEventListener('click', function(event) {
+        popupContainer.style.visibility = "hidden";
+    })
+
+    //dropdownPart
+    let dropdownInput = document.getElementById('dropdown-input');
+    let dropdownContainer = document.getElementById('dropdown-container');
+
+    dropdownInput.addEventListener('input', function(event) {
+        dropdownInput.value = "The Best day?";
+    })
+
+    //drop down part
+    dropdownInput.addEventListener('click', function(event) {
+            if (dropdownContainer.style.visibility == 'hidden') {
+                dropdownContainer.style.visibility = 'visible';
+            } else {
+                dropdownContainer.style.visibility = 'hidden';
+
+            }
+        })
+        //popover on the top part
+    let popoverUp = document.getElementById('popover-up');
+
+    let popoverTopBtn = document.getElementById('popover-top-btn');
+    popoverTopBtn.addEventListener('click', function(event) {
+            if (popoverUp.style.visibility == 'hidden') {
+                popoverUp.style.visibility = "visible";
+            } else {
+                popoverUp.style.visibility = "hidden";
+            }
+        })
+        //popover on the left part
+    let popoverLeft = document.getElementById('popover-left');
+
+    let popoverLeftBtn = document.getElementById('popover-left-btn');
+    popoverLeftBtn.addEventListener('click', function(event) {
+        if (popoverLeft.style.visibility == 'hidden') {
+            popoverLeft.style.visibility = "visible";
+        } else {
+            popoverLeft.style.visibility = "hidden";
+        }
+    })
+    popoverLeft.addEventListener('click', () => {
+
+        if (popoverLeft.style.visibility == 'visible') {
+            popoverLeft.style.visibility = "hidden";
+        }
+    })
+</script>
+
+</html>
